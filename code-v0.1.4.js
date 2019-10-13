@@ -43157,7 +43157,7 @@ var app;
 		}, e.isLobbyConnectOK = function () {
 			return !!game.LobbyNetMgr.Inst && game.LobbyNetMgr.Inst.connect_state == game.EConnectState.connecting
 		}, e.sendReq2Lobby = function (e, i, n, a) {
-			console.log(e, i, n, a);
+			console.log(e, i, n);
 			if (game.LobbyNetMgr.Inst) {
 				if (game.LobbyNetMgr.Inst.connect_state != game.EConnectState.connecting) {
 					r = "发送" + i + "时,";
