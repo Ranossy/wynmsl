@@ -1,3 +1,4 @@
+console.log("0.0.3");
 function __cons(t, a) {
 	return eval("new t(" + a.map(function (t, e) {
 		return "a[" + e + "]"
