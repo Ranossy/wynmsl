@@ -43157,7 +43157,11 @@ var app;
 		}, e.isLobbyConnectOK = function () {
 			return !!game.LobbyNetMgr.Inst && game.LobbyNetMgr.Inst.connect_state == game.EConnectState.connecting
 		}, e.sendReq2Lobby = function (e, i, n, a) {
-			console.log(e, i, n);
+			console.log("send", e+"."+i, n);
+			var func = function(ee, ii) {
+				console.log("recv", ee, ii);
+				a(ee, ii);
+			}
 			if (game.LobbyNetMgr.Inst) {
 				if (game.LobbyNetMgr.Inst.connect_state != game.EConnectState.connecting) {
 					r = "发送" + i + "时,";
@@ -43176,7 +43180,7 @@ var app;
 					}
 					return t.Log.log(r), uiscript.UIMgr.Inst && (GameMgr.inRelease ? uiscript.UIMgr.Inst.ShowErrorInfo(game.Tools.strOfLocalization(2006)) : uiscript.UIMgr.Inst.ShowErrorInfo(r)), !1
 				}
-				return this._socket_lobby.sendRequest(e, i, n, a), !0
+				return this._socket_lobby.sendRequest(e, i, n, func), !0
 			}
 			var r = "发送" + i + "时LobbyNetMgr不存在";
 			return t.Log.log(r), uiscript.UIMgr.Inst && !GameMgr.inRelease && uiscript.UIMgr.Inst.ShowErrorInfo(r), !1
