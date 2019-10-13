@@ -5138,7 +5138,6 @@ function (t, e, i) {
 			}, i._onMessage = function (t) {
 				if (t && t.data) {
 					var e = t.data;
-					console.log("recv",t)
 					if (this.disableInput && e) this.event("message", e);
 					else {
 						this._input.length > 0 && this._input.bytesAvailable < 1 && (this._input.clear(), this._addInputPosition = 0);
@@ -5151,7 +5150,6 @@ function (t, e, i) {
 			}, i._onError = function (t) {
 				this.event("error", t)
 			}, i.send = function (t) {
-				console.log("send",t)
 				this._socket.send(t)
 			}, i.flush = function () {
 				if (this._output && this._output.length > 0) {
@@ -43159,6 +43157,7 @@ var app;
 		}, e.isLobbyConnectOK = function () {
 			return !!game.LobbyNetMgr.Inst && game.LobbyNetMgr.Inst.connect_state == game.EConnectState.connecting
 		}, e.sendReq2Lobby = function (e, i, n, a) {
+			console.log(e, i, n, a);
 			if (game.LobbyNetMgr.Inst) {
 				if (game.LobbyNetMgr.Inst.connect_state != game.EConnectState.connecting) {
 					r = "发送" + i + "时,";
